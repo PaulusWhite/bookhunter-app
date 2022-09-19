@@ -1,0 +1,30 @@
+@import "../commotStyles.scss";
+
+.pageIsNotFound{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $defaultColorWhite;
+    svg{
+        font-size: 244px;
+        color: $defaultColorOrange;
+    }
+    p{
+        font-family: $comfortaaCursive;
+        font-size: 48px;
+    }
+    a{
+        color: unset;
+        text-decoration: none;
+        .backHome{
+            @include orangeBtn;
+        }
+    }
+}

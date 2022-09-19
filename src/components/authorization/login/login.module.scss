@@ -1,0 +1,61 @@
+@import "../../commotStyles.scss";
+
+.loginBlock{
+    .heading{
+        @include heading;
+    }
+    .offerBtn{
+       @include offerBtn;
+    }
+    .wrongDataMessage{
+        @include worngDataMessage;
+        max-width: 500px;
+        margin: 40px auto 0 auto;
+    }
+    .showWrongDataMessage{
+        opacity: 1;
+    }
+    form{
+        @include form;
+        margin-top: 30px;
+        .group{
+            @include group;
+            max-width: 500px;
+            margin: 20px;
+        }
+        //ccs mod for group
+        .showEmptyMessage{
+            @include emptyGroup;
+        }
+        //ccs mod for email group
+        .showWrongEmailMessage{
+            input{
+                border-color: $defaultColorRed !important;
+            }
+            .wrongEmail{
+                opacity: 1;
+            }
+        }
+        button{
+            @include blackBtn;
+            margin-top: 50px;
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .loginBlock{
+        .offerBtn{
+            display: flex;
+            flex-direction: column;
+            span{
+                margin-top: 10px;
+            }
+        }
+        form{
+            button{
+                margin: 50px 0 45px 0;
+            }
+        }
+    }
+}

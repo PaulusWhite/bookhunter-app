@@ -1,0 +1,188 @@
+@import "../../../commotStyles.scss";
+
+@mixin arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 52px;
+    color: $defaultColorWhite;
+    cursor: pointer;
+    transition: .2s;
+    &:hover{
+        color: $defaultColorOrange;
+    }
+}
+
+.caroosel{
+    position: relative;
+    height: calc(100vh - 140px - 80px);
+    overflow: hidden;
+    .slideLine{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: 1.1s;
+        > div{
+            position: relative;
+            right: 0;
+            width: 100%;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        //css-mod for >div
+        .animation{
+            transition: 1.3s ease-in-out;
+        }
+    }
+    .taglinesBlock{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+        transition: 1s;
+        .preliminarysLogan{
+            color: $defaultColorWhite;
+            font-size: 20px;
+            font-family: $comfortaaCursive;
+        }
+        .tagline{
+            p{
+                margin: 28px 0;
+                text-align: center;
+                color: $defaultColorWhite;
+                font-family: $robotoSlabSerifTwo;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-size: 55px;
+                white-space: nowrap;
+            }
+        }
+    }
+    .aroowRight{
+        @include arrow;
+        right: 0;
+        margin-right: 50px;
+    }
+    .aroowLeft{
+        @include arrow;
+        left: 0;
+        margin-left: 50px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse){
+    .caroosel{
+        .aroowRight,
+        .aroowLeft{
+            &:hover{
+                color: $defaultColorWhite;
+            }
+            &:active{
+                color: $defaultColorOrange;;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .caroosel{
+        .taglinesBlock{
+            .tagline{
+                p{
+                    font-size: 48px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px){
+    .caroosel{
+        .aroowRight{
+            margin-right: 25px;
+        }
+        .aroowLeft{
+            margin-left: 25px;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .caroosel{
+        height: calc(100vh - 170px);
+        .taglinesBlock{
+            .tagline{
+                p{
+                    font-size: 28px;
+                }
+            }
+        }
+        .aroowRight{
+            font-size: 40px;
+        }
+        .aroowLeft{
+            font-size: 40px;
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px) {
+    .caroosel{
+        height: 100vh;
+    }
+}
+
+@media (max-width: 533px){
+    .caroosel{
+        height: calc(100vh - 159px);
+        .slideLine{
+            height: 100%;
+            >div{
+                img{
+                    top: 0;
+                    bottom: 0;
+                }
+            }
+        }
+        .taglinesBlock{
+            .preliminarysLogan{
+                font-size: 18px;
+            }
+            .tagline{
+                p{
+                    margin: 5px 0;
+                    font-size: 22px;
+                    white-space: initial;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .caroosel{
+        .taglinesBlock{
+            .preliminarysLogan{
+                margin: 5px 0;
+                font-size: 14px;
+                // font-weight: normal;
+            }
+            .tagline{
+                p{
+                    font-size: 18px;
+                    // font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .caroosel{
+        height: calc(100vh - 149px);
+    }
+}

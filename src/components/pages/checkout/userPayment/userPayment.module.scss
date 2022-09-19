@@ -1,0 +1,368 @@
+@import "../../../commotStyles.scss";
+
+@mixin formCell{
+    display: flex;
+    flex-direction: column;
+    >span{
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border: solid 1px white;
+        border-bottom-color: $defaultColorBlack;
+        transition: .2s;
+        input{
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            color: $defaultColorBlack;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-family: $robotoSlabSerifTwo;
+            font-weight: bolder;
+            &::placeholder{
+                font-size: 14px;
+            }
+        }
+        >span{
+            display: flex;
+            img{
+                width: 30px;
+                margin: 0 2px;
+            }
+        }
+        i{
+            flex-shrink: 0;
+            color: $defaultColorOrange;
+            font-size: 16px;
+        }
+    }
+}
+
+.authUserPayment{
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: $robotoSlabSerifTwo;
+    .successMessage{
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+        border: none;
+        background-color: rgba(black, .7);
+        opacity: 0;
+        transition: .3s;
+        >div{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            max-width: 700px;
+            padding: 50px;
+            box-sizing: border-box;
+            background-color: $defaultColorOrange;
+            p{
+                color: $defaultColorWhite;
+                font-size: 22px;
+                &:first-child{
+                    text-align: center;
+                    font-size: 48px;
+                }
+            }
+            a{
+                flex-shrink: 0;
+                align-self: center;
+                width: fit-content;
+                margin-top: 20px;
+                button{
+                    @include blackBtn;
+                }
+            }
+        }
+    }
+    >div{
+        padding: 25px;
+        border: solid 1px $defaultColorBlack;
+    }
+    .infoBlock{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        height: 450px;
+        box-sizing: border-box;
+        border-right: none;
+        background-color: $defaultColorOrange;
+        color: $defaultColorWhite;
+        .totalSum{
+            display: flex;
+            justify-content: space-between;
+        }
+        .itemList{
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            border-bottom: solid 1px $defaultColorWhite;
+            scrollbar-color: $defaultColorWhite $paleColorOrange; //Firefox
+            scrollbar-width: thin; //Firefox
+            &::-webkit-scrollbar {
+                width: 10px;
+                background-color: $paleColorOrange;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: $defaultColorWhite;
+                border-radius: 10px;
+            }
+            .itemInfo{
+                display: flex;
+                justify-content: space-between;
+                font-size: 14px;
+                margin: 10px 0;
+                span{
+                    flex-shrink: 0;
+                }
+                span:not(span:last-child){
+                    padding-right:20px;
+                    box-sizing: border-box;
+                }
+                .title{
+                    display: -webkit-box;
+                    width: 220px;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .price{
+                    width: 150px;
+                }
+                .amount{
+                    width: 30px;
+                }
+            }
+        }
+        .orderInfo{
+            display: flex;
+            justify-content: space-around;
+            .orderID,.orderDate{
+                display: flex;
+                flex-direction: column;
+                i{
+                    padding-right: 10px;
+                }
+                span{
+                    margin: 5px 0;
+                }
+            }
+        }
+    }
+    .paymentForm{
+        width: 45%;
+        >p{
+            color: $defaultColorBlack;
+            font-size: 28px;
+            letter-spacing: 1.5px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            >div{
+                margin-bottom: 25px;
+            }
+            .cartNumber, .cardHolder{
+                @include formCell;
+            }
+            .cardInfo{
+                display: flex;
+                >div{
+                    @include formCell;
+                    width: 50%;
+                    &:first-child{
+                        padding-right: 10px;
+                    }
+                    &:last-child{
+                        padding-left: 10px;
+                    }
+                }
+            }
+            //ccs mod for div of input
+            .wrongField{
+                border: solid #f06979 1px !important;
+                box-shadow: 0 0 3px #f06979 !important;
+            }
+        }
+        button{
+            @include orangeBtn;
+            margin-top: 25px;
+            &:hover{
+                border-color: #f5a742;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .authUserPayment{
+        flex-direction: column;
+        .successMessage{
+            >div{
+                padding: 25px;
+                p{
+                    font-size: 18px;
+                    &:first-child{
+                        font-size: 26px;
+                    }
+                }
+            }
+        }
+        .infoBlock{
+            width: 60%;
+            border-right: solid 1px $defaultColorBlack;
+            margin-bottom: 25px;
+        }
+        .paymentForm{
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 800px){
+    .authUserPayment{
+        .successMessage{
+            >div{
+                width: 80%;
+            }
+        }
+        .infoBlock{
+            width: 90%;
+        }
+        .paymentForm{
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .authUserPayment{
+        .infoBlock{
+            width: 100%;
+        }
+        .paymentForm{
+            width: 90%;
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .authUserPayment{
+        .successMessage{
+            >div{
+                width: 95%;
+            }
+        }
+        >div{
+            padding: 15px;
+        }
+        .infoBlock{
+            width: 100%;
+            .itemList{
+                .itemInfo{
+                    position: relative;
+                    flex-wrap: wrap;
+                    padding-bottom: 5px;
+                    box-sizing: border-box;
+                    .title{
+                        width: 100%;
+                        margin-bottom: 3px;
+                    }
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        width: 50%;
+                        height: 1px;
+                        background-color: $defaultColorWhite;
+                    }
+                }
+            }
+        }
+        .paymentForm{
+            width: 100%;
+            box-sizing: border-box;
+            >p{
+                font-size: 26px;
+            }
+            .form{
+                .cartNumber, .cardHolder, .cardInfo{
+                    >span{
+                        font-size: 16px !important;
+                    }
+                    div{
+                        input{
+                            font-size: 16px !important;
+                        }
+                        span{
+                            img{
+                                width: 20px;
+                            }
+                        }
+                        i{
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+             .cardInfo{
+                flex-direction: column;
+                >div{
+                    width: 100%;
+                    margin-bottom: 25px;
+                    &:first-child{
+                        padding-right: 0;
+                    }
+                    &:last-child{
+                        padding-left: 0;
+                    }
+                }
+             }   
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .authUserPayment{
+        .successMessage{
+            >div{
+                p{
+                    font-size: 16px;
+                    &:first-child{
+                        font-size: 20px;
+                    }
+                }
+                a{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

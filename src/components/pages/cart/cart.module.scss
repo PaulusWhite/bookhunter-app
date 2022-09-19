@@ -1,0 +1,101 @@
+@import "../../commotStyles.scss";
+
+.emptyCart{
+    min-height: calc(100vh - 140px - 80px - 339px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    >p{
+        text-align: center;
+        font-family: $comfortaaCursive;
+        font-size: 34px; 
+    }
+    i{
+        color: #f5a742;
+        font-size: 128px;
+        transition: .2s;
+        cursor: pointer;
+        &:hover{
+            color: $defaultColorOrange;
+        }
+    }
+}
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    .bookList{
+        width: 100%;
+        max-width: 1200px;
+        > p{
+            @include heading;
+        }
+    }
+    .totalPrice{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 900px;
+        width: 100%;
+        margin-top: 50px;
+        *:not(button){
+            margin-right: 25px;
+        }
+        > p{
+            font-family: $comfortaaCursive;
+            font-size: 20px;
+        }
+        #total{
+            font-family: $comfortaaCursive;
+            font-size: 20px; 
+            font-weight: bold;
+        }
+        button{
+            @include blackBtn;
+        }        
+    }
+}
+
+@media (max-width:768px){
+    .cart{
+        padding: 50px 10px;
+        box-sizing: border-box;
+    }
+    .emptyCart{
+        min-height: calc(100vh - 170px - 312px);
+    }
+}
+
+@media (max-width: 600px){
+    .cart{
+        .totalPrice{
+            flex-direction: column;
+            p{
+                margin: 0 0 25px 0;
+            }
+            span{
+                margin: 0;
+            }
+            a{
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media (max-width:533px){
+    .emptyCart{
+        min-height: calc(100vh - 158px - 398px);
+        margin-bottom: 50px;
+    }
+}

@@ -1,0 +1,27 @@
+@import "./components/commotStyles.scss";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 14px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $defaultColorOrange;
+    border-radius: 10px;
+  }
+  scrollbar-color: $defaultColorOrange rgb(228, 228, 228) !important; //Firefox
+  scrollbar-width: thin !important; //Firefox
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

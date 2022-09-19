@@ -1,0 +1,50 @@
+@import "../../commotStyles.scss";
+
+.group{
+    @include group;
+    width: 47%;
+}
+//ccs mod for group
+.showErrorMessage{
+    @include errorGroup;
+}
+//ccs mod for group
+.showEmptyMessage{
+    @include emptyGroup;
+}
+//ccs mod for email group
+.showWrongEmailMessage{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .wrongEmail{
+        opacity: 1;
+    }
+}
+//ccs mod for nickName group
+.showWrongNickNameMessage{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .wrongNickName{
+        opacity: 1;
+    }
+}
+//ccs mod for password group
+.showWrongPasswordMessage{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .wrongPassword{
+        opacity: 1;
+    }
+}
+//ccs mod for repeat password group
+.showWrongRepeatPassword{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .wrongRepeatPassword{
+        opacity: 1;
+    }
+}

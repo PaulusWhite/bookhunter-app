@@ -1,0 +1,159 @@
+@import "../../../commotStyles.scss";
+
+.searchResult{
+    display: flex;
+    flex-direction: column;
+    >p{
+        @include heading;
+    }
+    .commonBlock{
+        display: flex;
+        padding-bottom: 50px;
+        .asidePanel{
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            width: 215px;
+            >p{
+                text-align: center;
+                font-family: $comfortaaCursive;
+                font-size: 22px;
+            }
+            hr{
+                width: 80%;
+                height: 1px;
+                outline: none;
+                border: 0;
+                background-color: $defaultColorBlack;
+            }
+            .sortingPanel{
+                @include radioBtns;
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+        .books{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    .showMoreBtn{
+        @include blackBtn;
+        margin-bottom: 50px;
+    }
+}
+
+.wrongRequest{
+    padding: 0 10px 50px 10px;
+    box-sizing: border-box;
+    p{
+        text-align: center;
+        font-family: $comfortaaCursive;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px){
+    .searchResult{
+        .commonBlock{
+            flex-direction: column;
+            align-items: center;
+            .asidePanel{
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                max-width: 360px;
+                >p{
+                    align-self: flex-start;
+                }
+                hr{
+                    display: none;
+                }
+                .sortingPanel{
+                    width: auto;
+                }
+            }
+            .books{
+                >div {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .searchResult{
+        .commonBlock{
+            .asidePanel{
+                flex-direction: column;
+                >p{
+                    align-self: center;
+                }
+            }
+            .books{
+                justify-content: space-around;
+                >div {
+                    width: 100%;
+                    max-width: 142px;
+                    a{
+                        >div{
+                            height: 205px;
+                            padding: 7px;
+                        }
+                        p{
+                            font-size: 16px; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .wrongRequest{
+        p{
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .searchResult{
+        .commonBlock{
+            .books{
+                >div {
+                    max-width: 132px;
+                    margin: 15px 5px;
+                    a{
+                        >div{
+                            height: auto;
+                            padding: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .searchResult{
+        .commonBlock{
+            .books{
+                >div {
+                    width: 100%;
+                    max-width: unset;
+                    margin: 25px 5px;
+                    a{
+                        >div{
+                            height: auto;
+                            padding: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

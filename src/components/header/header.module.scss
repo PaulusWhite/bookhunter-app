@@ -1,0 +1,308 @@
+@import "../commotStyles.scss";
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+    }
+    .logo{
+        img{
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        a{
+            h1{
+                color: $defaultColorBlack;
+                font-family: $robotoSlabSerifTwo;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 30px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: .2s;
+                &:hover{
+                    color: $defaultColorOrange;
+                }
+            }
+            text-decoration: none;
+            color: unset;
+            text-transform: unset;
+            span{
+                color: $defaultColorOrange;
+            }
+            .capitalLetter{
+                font-size: 35px;
+            }
+        }
+    }
+    .profile{
+        .login{
+            display: flex;
+            align-items: center;
+            span{
+                color: $defaultColorBlack;
+                font-family: $comfortaaCursive;
+                transition: .3s;
+            }
+            .signIn{
+                padding: 8px;
+                border: solid 2px rgba($defaultColorOrange ,0);
+                border-radius: 3px;
+                background-color: $defaultColorOrange;
+                color: $defaultColorWhite;
+                cursor: pointer;
+                &:hover{
+                    border: solid 2px rgba($defaultColorOrange ,1);
+                    background: $defaultColorWhite;
+                    color: $defaultColorOrange;
+                }
+            }
+            >.partition{
+                margin: 0 6px;
+            }
+            .registration{
+                color: $defaultColorOrange;
+                cursor: pointer;
+                &:hover{
+                    color: $defaultColorBlack;
+                }
+            }
+        }
+        >.partition{
+            display: inline-block;
+            width: 2px;
+            height: 30px;   
+            margin: 0 10px;
+            background-color: $defaultColorBlack;
+        }
+        //css mod for partition
+        .stretchedPartition{
+            margin: 0 30px;
+        }
+        .basket{
+            position: relative;
+            cursor: pointer;
+            i{
+                font-size: 30px;
+                color: $defaultColorOrange;
+            }
+            .counter{
+                position: absolute;
+                bottom: -9px;
+                right: -9px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 23px;
+                height: 23px;
+                padding-bottom: 1px;
+                border: solid $defaultColorOrange 1px;
+                box-sizing: border-box;
+                border-radius: 100%;
+                background-color: $defaultColorWhite;
+                color: $defaultColorOrange;
+                font-weight: bold;
+                font-family: $robotoSlabSerif;
+                font-size: 13px;
+            }
+        }
+        .burgerMenu{
+            display: none;
+            margin-left: 15px;
+            color: $defaultColorOrange;
+            font-size: 39px;
+            cursor: pointer;
+        }
+        svg{
+            flex-shrink: 0;
+        }
+    }
+    //css mod for profile
+    .authProfile{
+        justify-content: center;
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+    header{
+        .logo{
+            h1:hover{
+                color: unset;
+            }
+        }
+        .profile{
+            .login{
+                .signIn:hover{
+                    border: solid 2px rgba($defaultColorOrange ,0);
+                    background: $defaultColorOrange;
+                    color: $defaultColorWhite;
+                }
+                .registration:hover{
+                    color: $defaultColorOrange;
+                }
+                .registration:active{
+                    color: $defaultColorBlack
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    header{
+        >div{
+            max-width: 270px;
+        }
+        .logo{
+            justify-content: unset;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            h1{
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+@media(max-width: 900px) {
+    header{
+        height: unset;
+        flex-wrap: wrap-reverse;
+        >div:first-child{
+            justify-content: center;
+            max-width: 100%;
+            width: 100%;
+            span{
+                width: 380px;
+                i{
+                    right: 2%;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    header{
+        flex-wrap: wrap;
+        padding: 20px 10px;
+        border-bottom: solid  $defaultColorOrange 1px;
+        >div{
+            max-width: 320px;
+        }
+        >div:first-child{
+            order: 3;
+            margin-top: 20px;
+        }
+        .logo{
+            justify-content: unset;
+            order: 1;
+            width: 50%;
+            img{
+                width: 45px;
+                height: 45px;
+                margin-right: 10px;
+            }
+            h1{
+                font-size: 24px;
+                a{
+                    .capitalLetter{
+                        font-size: 29px;
+                    }
+                }
+            }
+        }
+        .profile{
+            width: 50%;
+            order: 2;
+            .burgerMenu{
+                display: block;
+            }
+        }
+    }
+}
+
+@media(max-width: 600px) {
+    header{
+        >div{
+            max-width: 260px;
+        }
+        .profile{
+            max-width: 190px;
+            .login{
+                .partition{
+                    display: none;
+                }
+                .registration{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 533px) {
+    header{
+        flex-direction: column;
+        .logo{
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+            img{
+                width: 45px;
+                height: 45px;
+            }
+        }
+        .profile{
+            position: relative;
+            width: 100%;
+            justify-content: flex-end;
+            max-width: 220px;
+            .login{
+                order: 2;
+            }
+            .partition{
+                order: 3;
+            }
+            .basket{
+                order: 4;
+            }
+            svg{
+                position: absolute;
+                left: 0;
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+@media(max-width: 320px) {
+    header{
+        .logo{
+            img{
+                width: 45px;
+                height: 45px;
+            }
+            h1{
+                font-size: 20px;
+                a{
+                    .capitalLetter{
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+}

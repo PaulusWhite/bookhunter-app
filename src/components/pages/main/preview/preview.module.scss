@@ -1,0 +1,197 @@
+@import "../../../commotStyles.scss";
+
+.preview{
+    padding: 100px 10px;
+    .topicPreview{
+        @include heading;
+        position: relative;
+    }
+    .topFiveSection, .popularBlock, .recommendedBlock{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 100px;
+    }
+    .specialSection{
+        position: relative;
+        >p:first-of-type{
+            background-color: $defaultColorWhite;
+        }
+        .background{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 93%;
+            background-color: $defaultColorOrange;
+        }
+        .popularBlock, .recommendedBlock{
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(6, auto);
+            grid-gap: 60px;
+            margin-top: 40px;
+            >div{
+                margin: 0;
+                >p{
+                    color: $defaultColorWhite;
+                }
+                button{
+                    border-color: $defaultColorWhite;
+                }
+            }
+        }
+        .topicPreview:last-of-type{
+            color: $defaultColorWhite;
+            font-size: 48px;
+            font-weight: bold;
+            &::after{
+                background-color: $defaultColorWhite;
+            }
+        }
+        .quote{
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0 auto;
+            padding-left: 10px;
+            box-sizing: border-box;
+            span{
+                @include heading;
+                color: $defaultColorWhite;
+                font-size: 62px;
+                font-weight: bold;
+                letter-spacing: 10px;
+                &::after{
+                    content: none;
+                }   
+            }
+        }
+    }
+}
+
+@media (max-width: 1680px){
+.preview{
+    .specialSection{
+        .popularBlock, 
+        .recommendedBlock{
+            grid-template-rows: auto auto;
+            grid-template-columns: repeat(3, auto);
+        }
+    }
+}
+}
+
+@media (max-width: 900px){
+    .preview{
+        .specialSection{
+            .popularBlock, 
+            .recommendedBlock{
+                grid-gap: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .preview{
+        .specialSection{
+            .quote{
+                span{
+                    font-size: 44px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .preview{
+        .specialSection{
+            .background{
+                width: 100%;
+            }
+            .popularBlock, 
+            .recommendedBlock{
+                grid-template-rows: auto auto auto;
+                grid-template-columns: repeat(2, auto);
+                grid-gap: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .preview{
+        .topFiveSection{
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .preview{
+        padding: 50px 10px;
+        .specialSection{
+            .topFiveSection{
+                margin-top: 25px;
+            }
+            .popularBlock, 
+            .recommendedBlock{
+                grid-template-rows: repeat(6, auto);
+                grid-template-columns: auto;
+                grid-gap: 10px;
+                margin-bottom: 50px;
+                >div{
+                    margin-top: 25px;
+                }
+            }
+            .topicPreview{
+                margin: 0 auto;
+                font-size: 34px !important;
+            }
+            .topicPreview:first-of-type{
+                width: 100%;
+            }
+        }
+        .specialSection{
+            .quote{
+                span{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .preview{
+        .specialSection{
+            .topicPreview{
+                font-size: 25px !important;
+            }
+        }
+        .specialSection{
+            .quote{
+                span{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .preview{
+        .specialSection{
+            .quote{
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,148 @@
+@import "../commotStyles.scss";
+
+nav{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: $defaultColorBlack;
+    transition: .2s;
+    .closeNav{
+        position: absolute;
+        top: 35px;
+        right: 35px;
+        display: unset;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        &:hover{
+            svg{
+                color: $paleColorOrange;
+            }
+        }
+        svg{
+            display: block;
+            width: 35px;
+            height: 35px;
+            margin: auto auto;
+            color: $defaultColorOrange;
+            transition: .3s;
+        }
+    }
+    >div:first-child{
+        display: none;
+    }
+    a{
+        padding: 15px;
+        font-family: $comfortaaCursive;
+        font-size: 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 1.5px;
+        color: #f0f0f0;
+        &:hover{
+            span{
+                color: $defaultColorOrange;
+                &::after{
+                    width: 100%;
+                }
+            }
+        }
+        span{
+            position: relative;
+            padding-bottom: 12px;
+            white-space: nowrap;
+            transition: .3s;
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 0%;
+                height: 3px;
+                border-radius: 3px;
+                background-color: #f5910f;
+                transition: .3s;
+            }
+        }
+    }
+    //ccs-mod for a(Link)
+    .activeLink{
+        span{
+            color: $defaultColorOrange ;
+            &::after{
+                width: 100% ;
+            }
+        } 
+    }
+}
+
+@media (hover: none) and (pointer: coarse){
+    nav{
+        a:hover{
+            span{
+                color: $defaultColorWhite !important;
+                &::after{
+                    width: 0;
+                }
+
+            }
+        }
+        a:active{
+            span{
+                color: $defaultColorOrange !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px){
+    nav{
+        .closeNav{
+            display: none !important;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    nav{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 110%;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        height: unset;
+        a{
+            span{
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px) {
+    nav{
+        top: 0;
+        bottom: 0;
+        a{
+            span{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media(max-width: 320px) {
+    nav{
+        a{
+            span{
+                font-size: 26px;
+            }
+        }
+    }
+}

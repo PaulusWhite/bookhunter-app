@@ -1,0 +1,261 @@
+$robotoSlabSerif: 'PT Sans Caption', sans-serif;
+$robotoSlabSerifTwo: 'Roboto Slab', serif;
+$comfortaaCursive: 'Comfortaa', cursive;
+$defaultColorOrange: #f5910f;
+$paleColorOrange: #f5a742;
+$defaultColorBlack: #121212;
+$defaultColorWhite: #fff;
+$defaultColorRed: #fa2f2f;
+
+@mixin blackBtn {
+    flex-shrink: 0;
+    width: 260px;
+    height: 50px;
+    border: solid $defaultColorBlack 2px;
+    font-family: $robotoSlabSerifTwo;
+    align-self: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background-color: $defaultColorBlack;
+    color: $defaultColorWhite;
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        background: none;
+        border-color: $defaultColorBlack;
+        color: $defaultColorBlack;
+    }
+    @media (max-width:320px){
+        width: 100%;
+        max-width: 240px;
+    }
+
+    @media (hover: none) and (pointer: coarse){
+        &:hover {
+            background-color: $defaultColorBlack;
+            border: solid $defaultColorBlack 2px;
+            color: $defaultColorWhite;
+        }
+        &:active {
+            background: none;
+            border-color: $defaultColorBlack;
+            color: $defaultColorBlack;
+        }
+    }
+}
+
+@mixin orangeBtn {
+    flex-shrink: 0;
+    width: 260px;
+    height: 50px;
+    border: solid $defaultColorOrange 2px;
+    background: $defaultColorOrange;   
+    color: $defaultColorWhite;
+    font-family: "Roboto Slab", serif;
+    align-self: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s; 
+    &:hover{
+        background-color: #f5a742;
+    }
+    @media (max-width:320px){
+        width: 100%;
+        max-width: 240px;
+    }
+
+    @media (hover: none) and (pointer: coarse){
+        &:hover{
+            background: $defaultColorOrange; 
+        }
+        &:active{
+            background-color: #f5a742;
+        }
+    }
+}
+
+@mixin heading {
+    margin: 0;
+    padding-bottom: 40px;
+    text-align: center;
+    color: $defaultColorBlack;
+    font-family: $comfortaaCursive;
+    font-size: 35px;
+    font-weight: lighter;
+    &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 2px;
+        margin: 40px auto 0 auto;
+        background-color: $defaultColorOrange;
+    }
+}
+
+@mixin radioBtns {
+    >div {
+        input{
+            display: none;
+        }
+        label{
+            display: block;
+            padding: 10px;
+            border: solid 2px $defaultColorWhite;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-family: $comfortaaCursive;
+            transition: .2s;
+            cursor: pointer;
+        }
+        //ccs mod for label
+        .activeLabel{
+            border-color: $defaultColorOrange;
+            color: $defaultColorWhite;
+            background-color: #f5a742;
+        }
+    }
+}
+
+@mixin scroll {
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 14px;
+        background-color: rgb(228, 228, 228);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $defaultColorOrange;
+        border-radius: 10px;
+    }
+    scrollbar-color: $defaultColorOrange rgb(228, 228, 228); //Firefox
+    scrollbar-width: thin; //Firefox
+}
+
+//mixins for registration / login Components 
+@mixin stretch {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+}
+
+@mixin form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 65px auto 0 auto;
+    font-size: 20px;    
+    >div{
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+@mixin offerBtn {
+    margin-top: 0;
+    text-align: center;
+    span{
+        color: $defaultColorOrange;
+        text-decoration: underline;
+        cursor: pointer;
+    }   
+}
+
+@mixin group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label{
+        margin-bottom: 10px;
+    }
+    input{
+        padding: 10px 10px;
+        border: solid $defaultColorBlack 1px;
+        outline: none;
+        border-radius: 3px;
+        font-size: 18px;
+        font-family: $comfortaaCursive;
+        transition: .2s;
+        &:focus{
+            border-color: $defaultColorOrange;
+        }
+    }    
+    .errorMessage, 
+    .emptyMessage, 
+    .wrongEmail, 
+    .wrongNickName, 
+    .wrongPassword, 
+    .wrongRepeatPassword{
+        position: absolute;
+        top: 80px;
+        margin: 0;
+        padding-left: 5px;
+        border-radius: 3px;
+        color: $defaultColorRed;
+        opacity: 0;
+        font-size: 14px;
+        transition: .3s;
+    }
+}
+
+@mixin worngDataMessage{
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid $defaultColorRed 1px;
+    border-radius: 3px;
+    color: $defaultColorRed;
+    background-color: #f3e2e2;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;     
+}
+
+@mixin errorGroup{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .errorMessage{
+        opacity: 1;
+    }
+}
+
+@mixin emptyGroup{
+    input{
+        border-color: $defaultColorRed !important;
+    }
+    .emptyMessage{
+        opacity: 1;
+    }
+}
+
+//common mixin for authorization and userProfilePanel Components
+@mixin hiddenBeing{
+    position: fixed;
+    z-index: 3;
+    transform: scale(0);
+    display: flex;
+    font-family: $comfortaaCursive;
+    transition: .3s;
+}
+
+@mixin imgLoading{
+    animation: imgLoading infinite alternate 1s;
+}
+
+@keyframes imgLoading{
+    from{
+        background-color: #f7f1ee;
+    }to{
+        background-color: #dad9d8;
+    }
+}

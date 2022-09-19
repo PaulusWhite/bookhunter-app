@@ -1,0 +1,125 @@
+@import "../commotStyles.scss";
+
+footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 0;
+    box-sizing: border-box;
+    background-color: #121212;
+    .logo{
+        display: flex;
+        align-items: center;
+        img{
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+        }
+        p{
+            color: #fff;
+            font-family: $robotoSlabSerifTwo;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 20px;
+            span{
+                color: $defaultColorOrange;
+                span{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    nav{
+        display: flex;
+        z-index: 2;
+    }
+    nav{
+        >span{
+            display: none !important; //closeNav btn
+        }
+        a{
+            &:hover{
+                span{
+                    color: $defaultColorOrange !important;
+                }
+            }
+            span{
+                color: $defaultColorWhite !important;
+                font-size: 16px;
+                &::after{
+                    content: none;
+                }
+            }
+        }
+    }
+    .developerContacts{
+        display: flex;
+        a{
+            margin: 0 10px;
+            cursor: pointer;
+            &:hover{
+                i{
+                    color: $defaultColorOrange;
+                    border-color: $defaultColorOrange;
+                }
+            }
+            i{
+                padding: 10px;
+                border: solid $defaultColorWhite 1px;
+                border-radius: 100%;
+                color: $defaultColorWhite;
+                font-size: 24px;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    footer{
+        >nav{
+            position: initial;
+            flex-direction: row;
+            a{
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    footer{
+        padding: 35px 0;
+        > nav{
+            position: initial;
+            flex-direction: column;
+            height: auto;
+            a{
+                padding: 10px;
+            }
+        }
+        .developerContacts{
+            margin-top: 15px;
+            a{
+                i{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    footer{
+        > nav{
+            a{
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

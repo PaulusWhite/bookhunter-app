@@ -1,0 +1,139 @@
+@import "../commotStyles.scss";
+
+.sideCart{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -350px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    background-color: $defaultColorWhite;
+    transition: .5s;
+    .cartHeader{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 95px;
+        background-color: $defaultColorOrange;
+        i{
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translate(-10%, -50%);
+            color: $defaultColorWhite;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        span{
+            color: $defaultColorWhite;
+            font-family: $comfortaaCursive;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+    }
+    .bookList{
+        height: 100%;
+        padding: 40px 20px 20px 20px;
+        overflow: auto;
+        scrollbar-width: thin; //Firefox
+        &::-webkit-scrollbar {
+            width: 10px;
+            background-color: rgb(228, 228, 228);
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $defaultColorOrange;
+            border-radius: 10px;
+        }
+        .emptyMessage{
+            text-align: center;
+            color: $defaultColorOrange;
+            font-family: $comfortaaCursive;
+            font-size: 24px;
+        }
+    }
+    .totalPrice{
+        padding-left: 20px;
+        box-sizing: border-box;
+        p{
+            color: $defaultColorBlack;
+            font-family: $comfortaaCursive;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    .cartBottom{
+        display: flex;
+        justify-content: center;
+        padding: 25px;
+        border-top: solid 2px $defaultColorOrange;
+        a{
+            width: 100%;
+            text-align: center;
+            button{
+                @include orangeBtn;
+            }
+        }
+    }
+}
+
+//ccs mod for sideCart
+.showCart{
+    right: 0 !important;
+}
+
+@media (orientation: landscape) and (max-width: 800px) {
+    .sideCart{
+        .cartHeader{
+            min-height: unset;
+            padding: 5px 0;
+            box-sizing: border-box;
+            span{
+                font-size: 20px;
+            }
+        }
+        .bookList{
+            padding: 20px 10px 10px 10px;
+        }
+        .totalPrice{
+            p{
+                font-size: 16px;
+                margin: 10px 0;
+            }
+        }
+        .cartBottom{
+            padding: 10px;
+            a{
+                button{
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .sideCart{
+        width: 320px;
+        right: -360px;
+        .bookList{
+            padding: 20px 10px 10px 15px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .sideCart{
+        width: 100%;
+        .cartBottom{
+            padding: 15px;
+        }
+    }
+}

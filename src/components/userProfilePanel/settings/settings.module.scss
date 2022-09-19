@@ -1,0 +1,68 @@
+@import "../../commotStyles.scss";
+
+.settingsTab{
+    position: relative;
+    display: flex;
+    .changingData{
+        width: 180px;
+        flex-shrink: 0;
+        p{
+            margin: 0;
+            padding: 10px 0 10px 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: .2s;
+            &:hover{
+                color: $defaultColorWhite;
+                background-color: $defaultColorOrange;
+            }
+        }
+        .active{
+            color: $defaultColorWhite !important;
+            background-color: $defaultColorOrange !important;
+        }
+    }
+    .newData{
+        width: 100%;
+        >form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .clue{
+                color: $defaultColorOrange;
+            }
+            button{
+                @include blackBtn;
+                margin: 5px 0 10px 0;
+            }
+        }
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .settingsTab{
+        .changingData{
+            p:hover{
+                color: unset;
+                background-color: unset;
+            }
+            p:active{
+                color: $defaultColorWhite !important;
+                background-color: $defaultColorOrange !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .settingsTab{
+        flex-direction: column;
+        .changingData{
+            width: 100%;
+            p{
+                text-align: center;
+            }
+        }
+    }
+}

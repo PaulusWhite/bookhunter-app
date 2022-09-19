@@ -1,0 +1,28 @@
+@import "../../commotStyles.scss";
+
+.profileDeletedMessage{
+    position: fixed;
+    z-index: 8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+    padding: 50px;
+    border: solid $defaultColorOrange 2px;
+    box-sizing: border-box;
+    background-color: $defaultColorWhite;
+    p{
+        color: $defaultColorOrange;
+        text-align: center;
+        font-family: $comfortaaCursive;
+        font-size: 28px;
+    }
+    button{
+        @include orangeBtn;
+    }
+}

@@ -1,0 +1,8 @@
+@import "../../commotStyles.scss";
+
+.checkout{
+    padding: 50px 10px;
+    >p{
+        @include heading;
+    }
+}

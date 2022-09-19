@@ -1,0 +1,115 @@
+@import "../../commotStyles.scss";
+
+.compilationItem{
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    padding: 40px 80px;
+    margin: 40px;
+    box-sizing: border-box;
+    border: solid 1px $defaultColorBlack;
+    cursor: pointer;
+    overflow: hidden;
+    transition: .2s;
+    &:hover{
+        border: solid 1px $defaultColorOrange;
+        .hoverCover{
+            top: 0;
+        }
+        >p{
+            bottom: 15px;
+        }
+        i{
+            opacity: 1;
+        }
+    }
+    a{
+        text-transform: unset;
+        text-decoration: unset;
+        img{
+            width: 100%;
+            box-shadow: 0 0 20px 3px #b8b3ad;
+        }
+        p{
+            position: relative;
+            bottom: 0;
+            margin-bottom: 0;
+            color: $defaultColorBlack;
+            text-align: center;
+            font-size: 22px;
+            font-family: $comfortaaCursive;
+            transition: .2s;
+            overflow: hidden;
+        }
+        .hoverCover{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: .5;
+            background-color: $defaultColorOrange;
+            transition: .2s;
+        }
+        i{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 84px;
+            color: $defaultColorBlack;
+            opacity: 0;
+            transition: .4s;
+        }
+    }
+    @media (max-width: 1280px){
+        padding: 20px 40px;
+    }
+    @media (max-width: 900px){
+        margin: 20px;
+        padding: 15px 30px;
+    }
+    @media (max-width: 768px){
+        margin: 10px;
+        padding: 10px 20px;
+        a{
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+    @media (max-width: 600px){
+        max-width: 360px;
+        padding: 40px;
+    }
+    @media (max-width: 320px){
+        padding: 20px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse){
+    .compilationItem:hover{
+        border: solid 1px $defaultColorBlack;
+        .hoverCover{
+            top: 100%;
+        }
+        >p{
+            bottom: 0;
+        }
+        i{
+            opacity: 0;
+        }
+    }
+    .compilationItem:active{
+        border: solid 1px $defaultColorOrange;
+        .hoverCover{
+            top: 0;
+        }
+        >p{
+            bottom: 15px;
+        }
+        i{
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,137 @@
+@import "./../../commotStyles.scss";
+
+.previewBookItem{
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px;
+    margin: 10px 20px;
+    font-family: $robotoSlabSerifTwo;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        .imgBox{
+            .hoverTablet{
+                bottom: 0;
+            }
+        }
+        .addBtn{
+            opacity: 1;
+        }
+    }
+    a{
+        text-decoration: none;
+        color: unset;
+        .imgBox{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 275px;
+            padding: 20px;
+            text-align: center;
+            background-color: #faf9f7;
+            overflow: hidden;
+            img{
+                width: 100%;
+                align-self: center;
+                box-shadow: 0 0 20px 3px #b8b3ad;
+                
+            }
+            .hoverTablet{
+                position: absolute;
+                bottom: -50%;
+                left: 0;
+                right: 0;
+                margin: 0 0 15px 0;
+                padding: 15px 10px;
+                box-sizing: border-box;
+                text-align: center;
+                background-color: rgba($defaultColorWhite, 0.8);
+                font-size: 16px;
+                font-weight: bold;
+                transition: .3s;
+            }
+        }
+        .imgLoading{
+            @include imgLoading;
+        }
+        .authors, .title, .price{
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+            padding: 0 10px;
+            color: $defaultColorBlack;
+            font-size: 18px;
+            font-family: $comfortaaCursive;
+            text-overflow: ellipsis; 
+        }
+        .authors{
+            font-weight: bolder;
+        }
+        .price{
+            text-align: center;
+        }
+    }
+    .addBtn{
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        border: solid 2px $defaultColorOrange;
+        box-sizing: border-box;
+        outline: none;
+        opacity: 0;
+        background-color: $defaultColorOrange;
+        color: $defaultColorWhite;
+        font-size: 16px;
+        font-family: $comfortaaCursive;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            background-color: $defaultColorWhite;
+            color: $defaultColorOrange;
+        }
+    }
+    //css-mod for addBtn ↓
+    .added{
+        background-color: $defaultColorWhite !important;
+        color: $defaultColorOrange !important; 
+    }
+}
+
+@media (hover: none) and (pointer: coarse){
+    .previewBookItem{
+        .imgBox{
+            .hoverTablet{
+                bottom: 0;
+            }
+        }
+        .addBtn{
+            opacity: 1;
+            &:hover{
+                background-color: $defaultColorOrange;
+                color: $defaultColorWhite;
+            }
+        }
+        .addBtn{
+            opacity: 1;
+            &:active{
+                background-color: $defaultColorWhite;
+                color: $defaultColorOrange;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .previewBookItem{
+        width: 180px;
+        a{
+            .imgBox{
+                padding: 10px;
+            }
+        }
+    }
+}

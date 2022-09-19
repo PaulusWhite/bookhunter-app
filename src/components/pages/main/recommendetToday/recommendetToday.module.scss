@@ -1,0 +1,159 @@
+@import "../../../commotStyles.scss";
+
+.commingBook{
+    margin: 100px 0;
+    .topic{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        span{
+            margin-bottom: 25px;
+            color: $defaultColorBlack;
+            font-family: $comfortaaCursive;
+            &:first-child{
+                font-size: 28px;
+            }
+            &:last-child{
+                font-size: 54px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .presentation{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 90%;
+        margin: 50px auto 0 auto;
+        .info{
+            width: 50%;
+            margin-right: 100px;
+            p{
+                color: $defaultColorBlack;
+                font-size: 20px;
+                font-family: $robotoSlabSerifTwo;
+                span{
+                    font-weight: bolder;
+                }
+            }
+            
+        }
+        .imgBox{
+            max-width: 500px;
+            border: solid 15px $defaultColorOrange;
+            padding: 35px;
+            box-sizing: border-box;
+            background-color: #b9eefa;
+            img{
+                display: block;
+                width: 100%;
+                box-shadow: -15px 15px 35px 1px rgba(#1c1c1c, .5);
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px){
+    .commingBook{
+        .presentation{
+            .info{
+                width: 100%;
+                margin-right: 30px;
+            }
+            .imgBox{
+                align-self: center;
+                max-width: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .commingBook{
+        .presentation{
+            .info{
+                p{
+                    font-size: 18px;
+                }
+            }
+            .imgBox{
+                max-width: 320px;
+                padding: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px){
+    .commingBook{
+        .topic{
+            span{
+                &:last-child{
+                    font-size: 48px;
+                }
+            }
+        }
+        .presentation{
+            flex-direction: column-reverse;
+            .imgBox{
+                max-width: 360px;
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .commingBook{
+        margin: 50px 0;
+        .topic{
+            span{
+                &:last-child{
+                    font-size: 32px;
+                }
+            }
+        }
+        .presentation{
+            .info{
+                p{
+                    font-size: 16px;
+                }
+            }
+            .imgBox{
+                max-width: 320px;
+                border-width: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .commingBook{
+        .topic{
+            span{
+                &:first-child{
+                    font-size: 18px;
+                }
+                &:last-child{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .commingBook{
+        .topic{
+            span{
+                &:first-child{
+                    font-size: 14px;
+                }
+                &:last-child{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

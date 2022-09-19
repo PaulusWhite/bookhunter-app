@@ -1,0 +1,33 @@
+@import "../../commotStyles.scss";
+
+.selections{
+    padding: 100px 10px;
+    h1{
+        @include heading;
+    }
+    .compilations{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+        justify-content: center;
+        grid-gap: 40px;
+        >div{
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .selections{
+        padding: 40px 10px;
+    }
+}
+
+@media (max-width: 600px){
+    .selections{
+        .compilations{
+            grid-template-columns: auto;
+            grid-template-rows: repeat(6, auto);
+        }
+    }
+}

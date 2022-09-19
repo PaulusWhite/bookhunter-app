@@ -1,0 +1,56 @@
+@import "../../commotStyles.scss";
+
+.registrationBlock{
+    .heading{
+        @include heading;
+    }
+    .offerBtn{
+       @include offerBtn;
+    }
+    .wrongDataMessage{
+        @include worngDataMessage;
+        max-width: 500px;
+        margin: 40px auto 0 auto;
+    }
+    .showWrongDataMessage{
+        opacity: 1;
+    }
+    form{
+        @include form;
+        margin-top: 35px;
+        .row{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+        }
+        button{
+            @include blackBtn;
+            margin-top: 50px;
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .registrationBlock{
+        form{
+            .row{
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0;
+                >div{
+                    width: 80%;
+                    margin-bottom: 25px;
+                    label{
+                        margin: 15px 0;
+                    }
+                    p{
+                        top: 100px;
+                    }
+                }
+            }
+            button{
+                margin: 10px 0 45px 0;
+            }
+        }
+    }
+}

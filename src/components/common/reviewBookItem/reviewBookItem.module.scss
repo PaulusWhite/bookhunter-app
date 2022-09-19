@@ -1,0 +1,200 @@
+@import "../../commotStyles.scss";
+
+.reviewBook{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 140px - 80px - 339px);
+    padding: 0 10px;
+    box-sizing: border-box;
+    .book{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1000px;
+        margin: 50px 0;
+        .tab{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0 50px;
+            box-sizing: border-box;
+            .tabsMenu{
+                @include radioBtns;
+                display: flex;
+                margin: 50px 0;
+            }
+            .title{
+                width: 100%;
+                padding-left: 50px;
+                text-align: center;
+                font-family: $comfortaaCursive;
+                font-size: 24px;
+            }
+        }
+        .info{
+            display: flex;
+            width: 100%;
+            .imgBox{
+                flex-shrink: 0;
+                align-self: center;
+                width: 220px;
+                min-height: 275px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 50px;
+                img{
+                    width: 100%;
+                    align-self: center;
+                    box-shadow: 0 0 20px 3px #b8b3ad;
+                }
+            }
+            //css mod for imgBox
+            .imgLoading{
+                @include imgLoading;
+            }
+            .details{
+                flex-grow: 1;
+                padding: 50px;
+                p{
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: $comfortaaCursive;
+                    font-size: 18px;
+                    >span:first-child{
+                        flex-shrink: 0;
+                        width: 140px;
+                    }
+                }
+                .categories{
+                    span{
+                        max-width: 360px;
+                    }
+                }
+            }
+            .descriptionBlock{
+                width: 100%;
+                .tabTitle{
+                    text-align: center;
+                    font-family: $comfortaaCursive;
+                    font-size: 24px; 
+                }
+                .description{
+                    font-family: $comfortaaCursive;
+                    font-size: 18px; 
+                    letter-spacing: .5px;
+                }
+            }
+        }
+        .addBtn{
+            @include blackBtn;
+            margin-top: 50px;
+        } 
+        //css-mod
+        .added{
+            background-color: #f5a742;
+            color: $defaultColorBlack;
+            &:hover{
+                background-color: #f5a742;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .reviewBook{
+        .book{
+            .info{
+                .imgBox{
+                    margin: 25px;
+                }
+                .details{
+                    padding: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .reviewBook{
+        .book{
+            .tab{
+                padding: 0 20px;
+                .title{
+                    padding-left: 10px;
+                }
+            }
+            .info{
+                .imgBox{
+                    margin: 25px;
+                }
+                .details{
+                    padding: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .reviewBook{
+        .book{
+            .tab{
+                flex-direction: column-reverse;
+                padding: 0 10px;
+                .title{
+                    padding-left: 0;
+                }
+            }
+            .info{
+                flex-direction: column;
+                .imgBox{
+                    margin: 25px;
+                }
+                .details{
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .reviewBook{
+        .book{
+            .tab{
+                .title{
+                    font-size: 22px;
+                }
+            }
+            .info{
+                .details{
+                    p{
+                        flex-direction: column;
+                        border-bottom: solid $defaultColorBlack 1px;
+                        font-size: 16px;
+                        span{
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .reviewBook{
+        .book{
+            .info{
+                .imgBox{
+                    width: 160px;
+                    height: 240px;
+                }
+            }
+        }
+    }
+}

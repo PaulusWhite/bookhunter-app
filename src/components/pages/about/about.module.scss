@@ -1,0 +1,199 @@
+@import "../../commotStyles.scss";
+
+.about{
+    margin-top: 100px;
+    >p, div{
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .topic{
+        @include heading;
+    }
+    .description{
+        width: 60%;
+        margin: 0 auto 100px auto;
+        text-align: center;
+        color: #696464;
+        font-size: 18px;
+        font-family: $comfortaaCursive;
+        letter-spacing: 1px;
+        line-height: 2;
+    }
+    .benefit{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 25%;
+            &:hover{
+                i{
+                    color: #f5a742;
+                }
+            }
+            i{
+                margin-bottom: 25px;
+                color: $defaultColorOrange;
+                font-size: 100px;
+                transition: .1s;
+            }
+            .title{
+                margin: 24px 0;
+                text-align: center;
+                font-family: $comfortaaCursive;
+                font-size: 22px;
+            }
+            .benefitDescription{
+                text-align: center;
+                color: $defaultColorBlack;
+                font-size: 18px;
+                font-family: $robotoSlabSerifTwo;
+            }
+        }
+    }
+    .malling{
+        width: 100%;
+        padding: 100px 10px;
+        box-sizing: border-box;
+        background-color: $defaultColorOrange;
+        >p{
+            margin: 0;
+            padding-bottom: 40px;
+            text-align: center;
+            color: $defaultColorWhite;
+            font-family: $comfortaaCursive;
+            font-size: 35px;
+            font-weight: lighter;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            input{
+                width: 100%;
+                max-width: 420px;
+                height: 50px;
+                padding-left: 10px;
+                margin-right: 10px;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                font-family: $comfortaaCursive;
+                color: #696464;
+            }
+            button{
+                @include blackBtn;
+                i{
+                    margin: 0 8px 2px 0;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .shopContact{
+        padding: 0;
+        .heading{
+            @include heading;
+            margin-top: 100px;
+        }
+        .shopContacts{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
+            div{
+                &:first-child{
+                    margin-right: 40px;
+                }
+                &:last-child{
+                    margin-left: 40px;
+                }
+                p{
+                    color: $defaultColorBlack;
+                    font-family: $comfortaaCursive;
+                    font-size: 18px;
+                    a{
+                        color: unset;
+                        margin: 0 7px;
+                        &:hover{
+                            svg{
+                                color: $defaultColorOrange;
+                            }
+                        }
+                        svg{
+                            font-size: 20px;
+                            color: $defaultColorBlack;
+                            transition: .1s;
+                        }
+                    }
+                }
+            }
+        }
+        .map{
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .about{
+        .description{
+            width: 80%;
+        }
+        .benefit{
+            width: 95%;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .about{
+        margin-top: 50px;
+        .description{
+            width: 95%;
+        }
+        .benefit{
+            flex-direction: column;
+            width: 95%;
+            >div{
+                width: 95%;
+                margin-bottom: 45px;
+            }
+        }
+        .shopContacts{
+            flex-direction: column;
+            align-items: center;
+            div{
+                margin: 0 auto !important;
+            }
+        }
+        .malling{
+            margin-top: 50px;
+            form{
+                flex-direction: column;
+                align-items: center;
+                input{
+                    width: 95%;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .about{
+        .description{
+            font-size: 16px;
+        }
+        .malling{
+            >p{
+                font-size: 28px;
+            }
+        }
+    }
+}

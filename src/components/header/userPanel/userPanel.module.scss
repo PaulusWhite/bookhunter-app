@@ -1,0 +1,150 @@
+@import "../../commotStyles.scss";
+
+@mixin icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    border: solid $defaultColorOrange 1px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover{
+        background-color: $defaultColorOrange;
+        svg{
+            color: white;
+        }
+    }
+    svg{
+        color: $defaultColorOrange;
+        font-size: 28px; 
+        transition: .2s;
+    }    
+}
+
+.userPanel{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 140px;
+    background-color: $defaultColorWhite;
+    .userIcon{
+        @include icon;
+    }
+    //css mod for userIcon
+    .activeIcon{
+        background-color: $defaultColorOrange;
+        svg{
+            color: white;
+        }
+    }
+    .submenu{
+        position: absolute;
+        top: 60px;
+        left: 85px;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        border: solid $defaultColorOrange 1px;
+        border-radius: 3px;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+        background-color: $defaultColorWhite;
+        font-family: $comfortaaCursive;
+        font-size: 14px;
+        transition: .1s;
+        cursor: auto;
+        .closeSubmenuBtn{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            svg{
+                color: $defaultColorOrange;
+                font-size: 20px;
+            }
+        }
+        .userNickName{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-bottom: solid $paleColorOrange 1px;
+            span{
+                color: $defaultColorBlack;
+                letter-spacing: 1.5px;
+                &:first-child{
+                    margin-bottom: 5px;
+                }
+                &:last-child{
+                    font-weight: bolder;
+                    color:  $defaultColorOrange;
+                    font-family: $robotoSlabSerif;
+                }
+            }
+        }
+        .userProfileLinks{
+            display: flex;
+            flex-direction: column;
+            span,a {
+                padding: 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+                &:hover{
+                    background-color: $defaultColorOrange;
+                    color: $defaultColorWhite;
+                }
+            }
+            a{
+                color: unset;
+                text-decoration: none;
+                span{
+                    padding: 0;
+                }
+            }
+        }
+    }
+    //ccs mod for submenu
+    .showSubmenu{
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 600px){
+    .userPanel{
+        .submenu{
+            left: 10px;
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .userPanel{
+        .submenu{
+            left: 75px;
+        }
+        .userIcon{
+            align-items: center;
+            svg{
+                padding-left: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .userPanel{
+        .submenu{
+            left: 25px;
+        }
+    }
+}

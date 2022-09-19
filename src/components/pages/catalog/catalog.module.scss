@@ -1,0 +1,101 @@
+@import "../../commotStyles.scss";
+
+.catalog{
+    padding: 0 10px;
+    box-sizing: border-box;
+    .searchBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 140px - 80px - 339px);
+        >p{
+            @include heading;
+            color: $defaultColorOrange;
+            font-size: 64px;
+            &::after{
+                content: none;
+            }
+        }
+        .searchField{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            input{
+                width: 30%;
+                min-width: 420px;
+                margin-right: 25px;
+                padding-left: 15px;
+                box-sizing: border-box;
+                border: solid 2px $defaultColorOrange;
+                outline: none;
+                background-color: rgba($defaultColorWhite, .7);
+                color: $defaultColorBlack;
+                font-family: $comfortaaCursive;
+                font-size: 18px;
+                transition: .2s;
+                &:focus{
+                    border: solid $defaultColorOrange 2px;
+                    box-shadow: 0 0 5px $defaultColorOrange;
+                }
+            }
+            button{
+                @include orangeBtn;
+            }
+        }
+    }
+    .resultBlock{
+        >p{
+            @include heading;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .catalog{
+        .searchBlock{
+            min-height: calc(100vh - 170px - 312px);
+            >p{
+                margin-top: 50px;
+            }
+            .searchField{
+                margin-bottom: 50px;
+                input{
+                    width: 60%;
+                    min-width: 240px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 533px){
+    .catalog{
+        .searchBlock{
+            min-height: calc(100vh - 158px - 398px);
+            >p{
+                font-size: 41px;
+            }
+            .searchField{
+                flex-direction: column;
+                align-items: center;
+                input{
+                    width: 95%;
+                    min-width: unset;
+                    height: 50px;
+                    margin: 0 0 25px 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px){
+    .catalog{
+        .searchBlock{
+            >p{
+                font-size: 34px;
+            }
+        }
+    }
+}
